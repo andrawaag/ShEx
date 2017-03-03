@@ -3,23 +3,80 @@ PREFIX wd: <https://www.wikidata.org/wiki/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX schema: <http://schema.org/>
 PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
 
-start = <wikipathways-pathway>
+start = <wikipathways-pathway_type>
 
 <wikidata-wikipathways-pathway> {
-	wdt:P31	wd:Q857525 , # P31 = instance of, Q857525 = annotation
-	wd:P921	wd:Q68685 , # P921 = main subject, Q68685 = metabolic pathway
-	wdt:P703	(wd:, wd:), # P703 = found in taxon, 
-	wdt:P856	IRI, 
-    wdt:P527	(@<gene_product_shape>, @<metabolite_shape>, @<protein_shape>)+ , # P527 = has part
-	wdt:P2789	@<wikipathways-pathway>+ , # P2789 = connects with
-	wdt:P2860	@<citation>* ,
-	wdt:P2888	(IRI, @<native-wikipathways-pathway>)+, # P2888 = exact match
+	p:P31	@<P31_instance_of_metabolic-pathway>+ ;
+	p:P2410	@<P2410_WikiPathways_ID>{1} ; 
+	p:P703	@<P703_found_in_taxon>{1} ;
+	p:P2860	@<P2860_cites>* ;
+	p:P527	@<P527_has_part>+ ;
 }
 
-<native-wikipathways-pathway> {
-  rdf:type wp:Pathway+,
-  dc:identifier IRI+,
-  dcterms:identifier LITERAL, 
-  ...... 
+<P31_instance_of_pathway-type> {
+	ps:P31	@<pathway_types>
+}
+
+<P527_has_part> {
+   ps:P527	@<geneproduct> OR @<metabolite> OR @<protein> ;
+   prov:wasDerivedFrom	@<wikipathway_reference> ;
+}
+
+<P703_found_in_taxon> {
+	ps:P703	@<wikipathway_species> ;
+	prov:wasDerivedFrom	@<wikipathway_reference> ;
+}
+
+<P2410_WikiPathways_ID> {
+	ps:P2410	LITERAL ;
+	prov:wasDerivedFrom	@<wikipathway_reference> ;
+}
+
+<P2860_cites> {
+	ps:P2860	@<pubmed_citation> ;
+	prov:wasDerivedFrom	@<wikipathway_reference> ;
+}
+
+<wikipathway_reference> {
+	pr:P248		[wd:Q7999828] ; # P248 stated in, wd:Q7999828 = Wikipathways
+	pr:P813		xsd:dateTime ;
+	pr:P854		IRI ; # TODO make explicit to recognize only the variant URL e.g. http://www.wikipathways.org/instance/WP179
+}
+
+<wikipathways_species> [
+	wd:Q15978631 # Homo sapiens
+	wd:Q83310	# Mus musculus
+	wd:Q184224. # Rattus norvegicus
+	# TODO get all species covered in Wikipathways
+]
+
+<pubmed_citation> {
+	wdt:P31	[wd:Q13442814] # P31 = instance of, Q13442814 = scientific article
+	wdt:P698 LITERAL	# P698 = Pubmed ID
+}
+
+<pathway_types> [
+	wd:Q28864279 # pathway
+	wd:Q28864276 # classical metabolic pathway
+	wd:Q28864297 # disease pathway
+	wd:Q28864298 # drug pathway
+	wd:Q28864299 # regulatory pathway
+	wd:Q28864300 # signaling pathway
+
+]
+
+<geneproduct> {
+# TODO specify
+}
+
+<metabolite> {
+# TODO specify
+}
+
+<protein> {
+# TODO specify
 }
