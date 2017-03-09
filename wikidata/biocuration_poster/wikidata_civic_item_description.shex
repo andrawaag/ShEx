@@ -12,28 +12,23 @@ PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 
 start = <civic_variant_record>
-
 <civic_variant_record> {
     p:P31 @<P31_instance_of_variant_type>+ ;
 		
 }
-
 <P31_instance_of_variant_type> {
    ps:P31	@<variant_types>+ ;
    prov:wasDerivedFrom @<civic_reference>+ ;
 }
-
 <wikidata_item_descriptors> {
 	( 	  rdfs:label LITERAL{1} ; #
 	  	  schema:description LITERAL{1} ;
 	      skos:altLabel LITERAL* ;
 	)+
 }
-
 <variant_types> {
 	p:P31 @<P31_instance_of_gene_variant_type>+ ;	
 }
-
 <P31_instance_of_gene_variant_type> {
 	p:P528	{ 					 # P528 = "catalog code"
 		ps:P528	LITERAL ;
@@ -48,13 +43,11 @@ start = <civic_variant_record>
 		ps:P2888	IRI ;		
 	}
 }
-
 <civic_reference> {
 	pr:P248	@<citation> ;
 	pr:P813	xsd:dateTime ;
 	pr:P854	IRI ;
 }
-
 <citation> {
 	wdt:P31		wd:Q13442814 ;   # Q13442814 = "Scientific article"	
 	(	
