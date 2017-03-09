@@ -1,0 +1,239 @@
+{
+  "type": "Schema",
+  "start": {
+    "type": "NodeConstraint",
+    "datatype": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_record"
+  },
+  "shapes": [
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P31",
+        "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_variant_type",
+        "min": 1,
+        "max": "INF"
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_record"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/statement/P31",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/variant_types",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_reference",
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_variant_type"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/description",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#altLabel",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            },
+            "min": 0,
+            "max": "INF"
+          }
+        ],
+        "min": 1,
+        "max": "INF"
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata_item_descriptors"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P31",
+        "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_gene_variant_type",
+        "min": 1,
+        "max": "INF"
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/variant_types"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P528",
+            "valueExpr": {
+              "type": "Shape",
+              "expression": {
+                "type": "EachOf",
+                "expressions": [
+                  {
+                    "type": "TripleConstraint",
+                    "predicate": "http://www.wikidata.org/prop/statement/P528",
+                    "valueExpr": {
+                      "type": "NodeConstraint",
+                      "nodeKind": "literal"
+                    }
+                  },
+                  {
+                    "type": "TripleConstraint",
+                    "predicate": "http://www.wikidata.org/prop/qualifier/P972",
+                    "valueExpr": {
+                      "type": "NodeConstraint",
+                      "values": [
+                        "https://www.wikidata.org/wiki/Q7452458"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P856",
+            "valueExpr": {
+              "type": "Shape",
+              "expression": {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P856",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                }
+              }
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P2888",
+            "valueExpr": {
+              "type": "Shape",
+              "expression": {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P2888",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "iri"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_gene_variant_type"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P248",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/citation"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P813",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P854",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            }
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_reference"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/direct/P31",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "https://www.wikidata.org/wiki/Q13442814"
+            }
+          },
+          {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/direct/P698",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                },
+                "min": 0,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/direct/P356",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                },
+                "min": 0,
+                "max": "INF"
+              }
+            ],
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/citation"
+    }
+  ],
+  "@context": "https://shexspec.github.io/context.jsonld"
+}
