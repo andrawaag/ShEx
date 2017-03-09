@@ -1,0 +1,62 @@
+PREFIX wp: <https://en.wikipedia.org/wiki/>
+PREFIX wd: <https://www.wikidata.org/wiki/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX schema: <http://schema.org/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+
+start = <civic_variant_record>
+
+<civic_variant_record> {
+    p:P31 @<P31_instance_of_variant_type>+ ;
+		
+}
+
+<P31_instance_of_variant_type> {
+   ps:P31	@<variant_types>+ ;
+   prov:wasDerivedFrom @<civic_reference>+ ;
+}
+
+<wikidata_item_descriptors> {
+	( 	  rdfs:label LITERAL{1} ; #
+	  	  schema:description LITERAL{1} ;
+	      skos:altLabel LITERAL* ;
+	)+
+}
+
+<variant_types> {
+	p:P31 @<P31_instance_of_gene_variant_type>+ ;	
+}
+
+<P31_instance_of_gene_variant_type> {
+	p:P528	{ 					 # P528 = "catalog code"
+		ps:P528	LITERAL{1} ;
+		pq:P972	[wd:Q7452458]{1} # Q7452458 = "Sequence Ontology"
+	}
+	
+	p:P856 { 					 # P856 = "Official website"
+		ps:P856	LITERAL ;
+	}
+	
+	p:P2888 {					 # P2888 = "exact match"
+		ps:P2888	IRI ;		
+	}
+}
+
+<civic_reference> {
+	pr:P248	@<citation> ;
+	pr:P813	xsd:dateTime ;
+	pr:P854	IRI .
+}
+
+<citation> {
+	wdt:P31		wd:Q13442814 ;   # Q13442814 = "Scientific article"	
+	(	
+		wdt:P698	LITERAL* ;		 # P698 = PubMed ID
+		wdt:P356	LITERAL* ;		 # P356 = DOI
+	)+
+}
+
+
