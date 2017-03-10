@@ -14,18 +14,32 @@ PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 start = <civic_variant_record>
 <civic_variant_record> {
     p:P31 @<P31_instance_of_variant_type>+ ;
-		
-}
-<P31_instance_of_variant_type> {
-   ps:P31	@<variant_types>+ ;
-   prov:wasDerivedFrom @<civic_reference>+ ;
-}
-<wikidata_item_descriptors> {
-	( 	  rdfs:label LITERAL{1} ; #
+	( 	  
+		  rdfs:label LITERAL{1} ; #
 	  	  schema:description LITERAL{1} ;
 	      skos:altLabel LITERAL* ;
-	)+
+	)+	;
+    p:P1057	@<P1057_chromosome> ;
+	(
+		p:P644 @<P644_genomic_start>+ ;
+		p:P645 @<P645_genomic_end>+ ;
+	)* ;
+	p:P3354 @<P3354_positive_therapeutic_predictor>* ;
+	p:P3355 @<P3355_negative_therapeutic_predictor>* ;
+	p:P3356 @<P3356_positive_diagnostic_predictor>* ;
+	p:P3357 @<P3357_negative_diagnostic_predictor>* ;
+	p:P3358 @<P3358_positive_prognostic_predictor>* ;
+	p:P3359 @<P3359_negative_prognostic_predictor>* ;
+	
+	## IDENTIFIERS 
+	p:P3329 @<P3329_civic_id>{1}	
 }
+
+<P31_instance_of_variant_type> {
+   ps:P31	@<variant_types>+ ;
+   prov:wasDerivedFrom @<civic_variant_reference>+ ;
+}
+
 <variant_types> {
 	p:P31 @<P31_instance_of_gene_variant_type>+ ;	
 }
@@ -43,7 +57,86 @@ start = <civic_variant_record>
 		ps:P2888	IRI ;		
 	}
 }
-<civic_reference> {
+
+<P644_genomic_start> {
+   ps:P644 LITERAL ;
+   pq:P1057	@<human-chromosomes>+ ;	
+   pq:P659	@<genomic-assembly>+ ;
+   prov:wasDerivedFrom @<civic_variant_reference>+ ;
+}
+
+<P645_genomic_end> {
+   ps:P645 LITERAL ;
+   pq:P1057	@<human-chromosomes>+ ;	
+   pq:P659	@<genomic-assembly>+ ;
+   prov:wasDerivedFrom @<civic_variant_reference>+ ;
+}
+
+<P1057_chromosome> {	
+   ps:P1057 @<human-chromosomes>+ ;
+   pq:P659	@<genomic-assembly>+ ;  
+   prov:wasDerivedFrom @<civic_variant_reference>+ ;   
+}
+
+<P3329_civic_id> {
+	ps:P3329 LITERAL ;
+	prov:wasDerivedFrom @<civic_variant_reference>+ ;
+}
+
+<P3354_positive_therapeutic_predictor> {
+ 	# P3354 = positive therapeutic predictor
+ 	p:P3354 { ps:P3354	@<pharmaceutical_drug> ;
+	 		  pq:P2175	@<wikidata-disease>+ ; # P2175 = medical condition treated 
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+ ;
+			}
+} 
+
+<P3355_negative_therapeutic_predictor> {			
+  	# P3355 = negative therapeutic predictor
+ 	p:P3355 { ps:P3355	@<pharmaceutical_drug> ;      
+	 		  pq:P2175	@<wikidata-disease>+ ; # P2175 = medical condition treated 
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+ ;
+			} 
+}
+	
+<P3356_positive_diagnostic_predictor> {
+  	# P3356 = positive diagnostic predictor
+ 	p:P3356 { ps:P3356	@<wikidata-disease>+ ;
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+;
+			}
+}
+
+<P3357_negative_diagnostic_predictor> {			
+  	# P3357 = negative diagnostic predictor
+ 	p:P3357 { ps:P3356	@<wikidata-disease>+ ;
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+;
+			}
+}
+
+<P3358_positive_prognostic_predictor> {			
+  	# P3358 = positive prognostic predictor
+ 	p:P3358 { ps:P3358	@<wikidata-disease>+ ;
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+;
+			} 
+}
+
+<P3359_negative_prognostic_predictor> {			
+  	# P3359 = negative prognostic predictor
+ 	p:P3359 { ps:P3359	@<wikidata-disease>+ ;
+ 	          prov:wasDerivedFrom @<civic-evidence-reference>+;
+			}
+}
+
+<civic-evidence-reference> {
+      # P248 = Stated in
+      pr:P248	[wd:Q20641742 wd:Q20950174 ] ;
+	  # P854 = reference URL
+	  pr:P854	LITERAL ;
+	  # P813 = retrieved
+	  pr:P813	xsd:dateTime ;
+}
+			
+<civic_variant_reference> {
 	pr:P248	@<citation> ;
 	pr:P813	xsd:dateTime ;
 	pr:P854	IRI ;
@@ -55,3 +148,50 @@ start = <civic_variant_record>
 		wdt:P356	LITERAL* ;		 # P356 = DOI
 	)+
 }
+
+<pharmaceutical_drug> {
+
+}
+
+<wikidata-disease> {
+
+}
+
+## LISTS
+<human-chromosomes> [
+				wd:Q430258  # human chromosome 1
+				wd:Q638893  # human chromosome 2
+				wd:Q668633  # human chromosome 3
+				wd:Q836605  # human chromosome 4
+				wd:Q840741  # human chromosome 5
+				wd:Q540857  # human chromosome 6
+				wd:Q657319  # human chromosome 7
+				wd:Q572848  # human chromosome 8
+				wd:Q840604  # human chromosome 9
+				wd:Q840737  # human chromosome 10
+				wd:Q847096  # human chromosome 11
+				wd:Q847102  # human chromosome 12
+				wd:Q840734  # human chromosome 13
+				wd:Q138955  # human chromosome 14
+				wd:Q765245  # human chromosome 15
+				wd:Q742870  # human chromosome 16
+				wd:Q220677  # human chromosome 17
+				wd:Q780468  # human chromosome 18
+				wd:Q510786  # human chromosome 19
+				wd:Q666752  # human chromosome 20
+				wd:Q753218  # human chromosome 21
+				wd:Q753805  # human chromosome 22
+				wd:Q61333  # human chromosome X
+				wd:Q202771  # human chromosome Y
+				wd:Q27075  # human chromosome MT
+
+			]
+			
+<genomic-assembly> [
+   				wd:Q20966585 # Genome assembly GRCh38
+				wd:Q21067546 # Genome assembly GRCh37
+			]
+			
+<variant_type> [
+		       wd:Q27429979 # Missense variant
+]

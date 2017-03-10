@@ -8,11 +8,128 @@
     {
       "type": "Shape",
       "expression": {
-        "type": "TripleConstraint",
-        "predicate": "http://www.wikidata.org/prop/P31",
-        "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_variant_type",
-        "min": 1,
-        "max": "INF"
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P31",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_variant_type",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/description",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2000/01/rdf-schema#altLabel",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "literal"
+                },
+                "min": 0,
+                "max": "INF"
+              }
+            ],
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P1057",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P1057_chromosome"
+          },
+          {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/P644",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P644_genomic_start",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/P645",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P645_genomic_end",
+                "min": 1,
+                "max": "INF"
+              }
+            ],
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3354",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3354_positive_therapeutic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3355",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3355_negative_therapeutic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3356",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3356_positive_diagnostic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3357",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3357_negative_diagnostic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3358",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3358_positive_prognostic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3359",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3359_negative_prognostic_predictor",
+            "min": 0,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/P3329",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3329_civic_id",
+            "min": 1,
+            "max": 1
+          }
+        ]
       },
       "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_record"
     },
@@ -31,54 +148,13 @@
           {
             "type": "TripleConstraint",
             "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
-            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_reference",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference",
             "min": 1,
             "max": "INF"
           }
         ]
       },
       "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P31_instance_of_variant_type"
-    },
-    {
-      "type": "Shape",
-      "expression": {
-        "type": "EachOf",
-        "expressions": [
-          {
-            "type": "TripleConstraint",
-            "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
-            "valueExpr": {
-              "type": "NodeConstraint",
-              "nodeKind": "literal"
-            },
-            "min": 1,
-            "max": 1
-          },
-          {
-            "type": "TripleConstraint",
-            "predicate": "http://schema.org/description",
-            "valueExpr": {
-              "type": "NodeConstraint",
-              "nodeKind": "literal"
-            },
-            "min": 1,
-            "max": 1
-          },
-          {
-            "type": "TripleConstraint",
-            "predicate": "http://www.w3.org/2000/01/rdf-schema#altLabel",
-            "valueExpr": {
-              "type": "NodeConstraint",
-              "nodeKind": "literal"
-            },
-            "min": 0,
-            "max": "INF"
-          }
-        ],
-        "min": 1,
-        "max": "INF"
-      },
-      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata_item_descriptors"
     },
     {
       "type": "Shape",
@@ -167,6 +243,362 @@
         "expressions": [
           {
             "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/statement/P644",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/qualifier/P1057",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/human-chromosomes",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/qualifier/P659",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/genomic-assembly",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference",
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P644_genomic_start"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/statement/P645",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/qualifier/P1057",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/human-chromosomes",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/qualifier/P659",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/genomic-assembly",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference",
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P645_genomic_end"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/statement/P1057",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/human-chromosomes",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/qualifier/P659",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/genomic-assembly",
+            "min": 1,
+            "max": "INF"
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference",
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P1057_chromosome"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/statement/P3329",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference",
+            "min": 1,
+            "max": "INF"
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3329_civic_id"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3354",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3354",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/pharmaceutical_drug"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/qualifier/P2175",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3354_positive_therapeutic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3355",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3355",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/pharmaceutical_drug"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/qualifier/P2175",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3355_negative_therapeutic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3356",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3356",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3356_positive_diagnostic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3357",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3356",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3357_negative_diagnostic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3358",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3358",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3358_positive_prognostic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.wikidata.org/prop/P3359",
+        "valueExpr": {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.wikidata.org/prop/statement/P3359",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease",
+                "min": 1,
+                "max": "INF"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+                "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference",
+                "min": 1,
+                "max": "INF"
+              }
+            ]
+          }
+        }
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/P3359_negative_prognostic_predictor"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P248",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "https://www.wikidata.org/wiki/Q20641742",
+                "https://www.wikidata.org/wiki/Q20950174"
+              ]
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P854",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "literal"
+            }
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.wikidata.org/prop/reference/P813",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          }
+        ]
+      },
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic-evidence-reference"
+    },
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
             "predicate": "http://www.wikidata.org/prop/reference/P248",
             "valueExpr": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/citation"
           },
@@ -188,7 +620,7 @@
           }
         ]
       },
-      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_reference"
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/civic_variant_reference"
     },
     {
       "type": "Shape",
@@ -233,6 +665,60 @@
         ]
       },
       "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/citation"
+    },
+    {
+      "type": "Shape",
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/pharmaceutical_drug"
+    },
+    {
+      "type": "Shape",
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/wikidata-disease"
+    },
+    {
+      "type": "NodeConstraint",
+      "values": [
+        "https://www.wikidata.org/wiki/Q430258",
+        "https://www.wikidata.org/wiki/Q638893",
+        "https://www.wikidata.org/wiki/Q668633",
+        "https://www.wikidata.org/wiki/Q836605",
+        "https://www.wikidata.org/wiki/Q840741",
+        "https://www.wikidata.org/wiki/Q540857",
+        "https://www.wikidata.org/wiki/Q657319",
+        "https://www.wikidata.org/wiki/Q572848",
+        "https://www.wikidata.org/wiki/Q840604",
+        "https://www.wikidata.org/wiki/Q840737",
+        "https://www.wikidata.org/wiki/Q847096",
+        "https://www.wikidata.org/wiki/Q847102",
+        "https://www.wikidata.org/wiki/Q840734",
+        "https://www.wikidata.org/wiki/Q138955",
+        "https://www.wikidata.org/wiki/Q765245",
+        "https://www.wikidata.org/wiki/Q742870",
+        "https://www.wikidata.org/wiki/Q220677",
+        "https://www.wikidata.org/wiki/Q780468",
+        "https://www.wikidata.org/wiki/Q510786",
+        "https://www.wikidata.org/wiki/Q666752",
+        "https://www.wikidata.org/wiki/Q753218",
+        "https://www.wikidata.org/wiki/Q753805",
+        "https://www.wikidata.org/wiki/Q61333",
+        "https://www.wikidata.org/wiki/Q202771",
+        "https://www.wikidata.org/wiki/Q27075"
+      ],
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/human-chromosomes"
+    },
+    {
+      "type": "NodeConstraint",
+      "values": [
+        "https://www.wikidata.org/wiki/Q20966585",
+        "https://www.wikidata.org/wiki/Q21067546"
+      ],
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/genomic-assembly"
+    },
+    {
+      "type": "NodeConstraint",
+      "values": [
+        "https://www.wikidata.org/wiki/Q27429979"
+      ],
+      "id": "file:///Users/andra/projects/ShEx/wikidata/biocuration_poster/variant_type"
     }
   ],
   "@context": "https://shexspec.github.io/context.jsonld"
